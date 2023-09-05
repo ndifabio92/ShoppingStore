@@ -1,8 +1,9 @@
 import {ReactElement} from "react";
 
-export interface ProductCardProps extends StylesProps{
+export interface ProductCardProps extends StylesProps {
     product: Product;
     children?: ReactElement | ReactElement[];
+    onChange?: ( args: onChangeArgs ) => void;
 }
 
 export interface Product {
@@ -20,4 +21,13 @@ export interface ProductContextProps {
 export interface StylesProps {
     className?: string;
     style?: React.CSSProperties
+}
+
+export interface ProductInCart extends Product {
+    count: number;
+}
+
+export interface onChangeArgs {
+    product: Product;
+    count: number;
 }

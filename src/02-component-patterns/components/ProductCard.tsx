@@ -6,8 +6,8 @@ import {ProductContextProps, ProductCardProps} from "../interfaces/interfaces.ts
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider} = ProductContext;
 
-export const ProductCard = ({ children, product, className, style }: ProductCardProps) => {
-    const {increaseBy, counter} = useProducts();
+export const ProductCard = ({ children, product, className, style, onChange }: ProductCardProps) => {
+    const {increaseBy, counter} = useProducts({ onChange, product });
     return (
         <Provider value={{
             counter,
